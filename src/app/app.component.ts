@@ -5,7 +5,7 @@ import {Component, ElementRef, OnInit} from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'ng-in-viewport';
   numbers: number[];
 
@@ -13,12 +13,7 @@ export class AppComponent implements OnInit{
     this.numbers = Array(25).fill(0).map((x,i)=>i);
   }
 
-  ngOnInit() {
-    console.log(this.numbers);
-  }
-
   onIntersection({target}: { target: ElementRef }) {
-    console.log(target);
     target.nativeElement.classList.add("active");
   }
 }

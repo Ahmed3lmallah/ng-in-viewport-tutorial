@@ -14,10 +14,9 @@ export class InViewportDirective {
   ) {}
 
   public ngAfterViewInit() {
-    console.log(this.inViewportOptions);
     this._intersectionObserver = new IntersectionObserver(entries => {
       this.checkForIntersection(entries);
-    }, JSON.parse(this.inViewportOptions));
+    }, (this.inViewportOptions ? JSON.parse(this.inViewportOptions) : {}));
     this._intersectionObserver.observe((this._element.nativeElement) as Element);
   }
 
