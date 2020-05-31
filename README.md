@@ -1,8 +1,8 @@
-# How to detect when an Element gets in the viewport in Angular 9?
+# How to detect when an Element gets in the viewport in Angular 9
 
 ## Introduction
 
-In this tutorial we are going to learn how to trigger an action when an HTML element comes into viewport, gets visible in the screen during scrolling. Perhaps we want our images to only load when we scroll down to where they are visible. This is known as lazy loading. Another use case would be infinite scrolling, where we load more items to the page when we reach the bottom. Maybe we just want to create effects or change the CSS styling of the element by adding or removing specific class names when they come into viewport. 
+In this tutorial we are going to learn how to trigger an action when an HTML element comes into viewport, gets visible in the screen during scrolling. Perhaps we want our images to only load when we scroll down to where they are visible. This is known as lazy loading. Another use case would be infinite scrolling, where we load more items to the page when we reach the bottom. Maybe we just want to create effects or change the CSS styling of the element by adding or removing specific class names when they come into viewport.
 
 ### TL;DR
 
@@ -22,7 +22,7 @@ This is considered the old way of detecting elements getting in the viewport. Sc
 * Listening to the `scroll` event can cause performance issues as the calculations will be run on the main thread.
 * The calculation is performed each time there is a scroll on the page which is bad if the element is well below the view port.
 * The calculation can be very expensive if there are a lot of elements we want to detect on the page.
- 
+
 For that reason, it is recommended to use Intersection Observer Api as it has been developed for this very purpose and it is [almost supported by all modern browsers](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Browser_compatibility).
 
 Read the following article to learn more about the [The Old Way : Listening to the scroll Event](https://usefulangle.com/post/113/javascript-detecting-element-visible-during-scroll).
@@ -39,7 +39,7 @@ Intersection Observer will fire a callback function, once any of the threshold v
 
 > *To get an in-depth understanding of the Intersection Observer API, I recommend reading the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) or [Javascript Intersection Observer API Explained in Detail](https://usefulangle.com/post/118/javascript-intersection-observer) post by [Useful Angle](https://usefulangle.com/). This [Medium Story by Vamsi Vempati](https://medium.com/angular-in-depth/a-modern-solution-to-lazy-loading-using-intersection-observer-9280c149bbc) discusses how to use Intersection Observer API to lazy load images. Additionally, the two following npm packages implement Intersection Observer API: [ng-in-viewport](https://k3nsei.gitbook.io/ng-in-viewport/) and [ng-defer-load](https://www.npmjs.com/package/@trademe/ng-defer-load).*
 
-## Tutorial - How to use Intersection Observer API 
+## Tutorial - How to use Intersection Observer API
 
 Using Intersection Observer API comprises the following steps:
 
@@ -104,9 +104,9 @@ The callback function `checkForIntersection` would have logic to check if the el
 
 ## Using the Directive
 
-The directive should be added automatically to the list of imports in the module corresponding to your component since we used the Angular CLI, so we can use the directive with any element that we wish to observe. We simply use `(appInViewport)` to use the directive and listen to events emitted from it. Optionally, we can specifiy the `inViewportOptions`. It accepts a JSON string in the following format: `'{ &quot;threshold&quot;: [threshold value] }'` 
+The directive should be added automatically to the list of imports in the module corresponding to your component since we used the Angular CLI, so we can use the directive with any element that we wish to observe. We simply use `(appInViewport)` to use the directive and listen to events emitted from it. Optionally, we can specifiy the `inViewportOptions`. It accepts a JSON string in the following format: `'{ &quot;threshold&quot;: [threshold value] }'`
 
-* Note: in HTML, double quotes are escaped by `&quot;` 
+* Note: in HTML, double quotes are escaped by `&quot;`
 
         <h1>Demo: How to Use Intersection Observer API?</h1>
         <ul class="list">
@@ -117,7 +117,6 @@ The directive should be added automatically to the list of imports in the module
                 <span>{{(number+1)}}</span>
             </li>
         </ul>
-
 
 In the component's `.ts` file, we generate an array for demo purposes, and set the *onIntersection* action to simply add a class name, `active`, that would allow us to change the styling of the items in the list.  
 
@@ -183,5 +182,5 @@ A working example of the above code can be seen on [StackBlitz](https://stackbli
 In this article, different ways to detect HTML elements getting in the viewport were mentioned. The first was by using JQuery, the second was by listening to `scroll` events, and the third and is considered to be the modern way was to use the **Intersection Observer API**. We have shown how the API works in theory, and followed a simple tutorial of making a directive that can be used to simply emit an event when an element gets in viewport. The emitted event can be then used to perform custom actions on the elements, such as:
 
 * Infinite Scrolling where you see more content as you scroll
-* Lazy Loading images to only display them when the user gets to them, so it does not increase the initial page load time.
-* Performing tasks such as Animations only when the user sees the result.
+* Lazy Loading images to only display them when the user gets to them, so it does not increase the initial page load time
+* Performing tasks such as Animations only when the user sees the result
