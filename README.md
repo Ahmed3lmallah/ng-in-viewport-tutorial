@@ -8,7 +8,7 @@ In this tutorial we are going to learn how to trigger an action when an HTML ele
 
 We can use the **Intersection Observer API** to detect when an element gets in the viewport and trigger an action based on that detection. To learn how to use the API, jump straight to [Using Intersection Observer API](#using-intersection-observer-api) section, or continue reading for more background.
 
-There are multiple [JQuery plugins](https://plugins.jquery.com/tag/viewport/) that can be used for that purpose, including *isInViewport.js*, *Qoopido Emerge* and *jQuery ScrollSpy*. Another npm package based on JQuery that can be used for the same purpose is [jquery-waypoints](https://www.npmjs.com/package/jquery-waypoints). However, **using JQuery with Angular is  considered a bad practice and should be avoided, unless apsolutely necassary**. This [Stack Overflow answer](https://stackoverflow.com/questions/14994391/thinking-in-angularjs-if-i-have-a-jquery-background?answertab=active#tab-top) explains why.
+There are multiple [JQuery plugins](https://plugins.jquery.com/tag/viewport/) that can be used for that purpose, including *isInViewport.js*, *Qoopido Emerge* and *jQuery ScrollSpy*. Another npm package based on JQuery that can be used for the same purpose is [jquery-waypoints](https://www.npmjs.com/package/jquery-waypoints). However, **using JQuery with Angular is  considered a bad practice and should be avoided, unless absolutely necessary**. This [Stack Overflow answer](https://stackoverflow.com/questions/14994391/thinking-in-angularjs-if-i-have-a-jquery-background?answertab=active#tab-top) explains why.
 
 There are two ways we can use in Angular to know when an element gets into viewport during scrolling:
 
@@ -35,7 +35,7 @@ The Intersection Observer API can tell whether the target element and the screen
 
 We can set a **threshold** in the options when we create a new `IntersectionObserver` object, which can be any number between 0 and 1. This value represents the viewable area of the target element in the screen. The default threshold value is 0 which represents no area of element is visible. A value of 0.25 represents about 25% area is viewable in screen. Value of 1 means element is fully viewable in screen. We can even specify multiple thresholds as an array of values — [0, 0.25, 1].
 
-Intersection Observer will fire a callback function, once any of the threshold values is passed in either direction. For example if you have set threshold to 0.25, callback function will be invoked everytime when viewable area becomes greater than 25% or becomes less than 25%. Refer to this [codepen](https://codepen.io/anon/pen/vjWEqO) and [usefulangle.com](https://usefulangle.com/demos/118/intersection-observer-demo.html) demos of Intersection Observer with various thresholds.
+Intersection Observer will fire a callback function, once any of the threshold values is passed in either direction. For example if you have set threshold to 0.25, callback function will be invoked every time when viewable area becomes greater than 25% or becomes less than 25%. Refer to this [codepen](https://codepen.io/anon/pen/vjWEqO) and [usefulangle.com](https://usefulangle.com/demos/118/intersection-observer-demo.html) demos of Intersection Observer with various thresholds.
 
 > *To get an in-depth understanding of the Intersection Observer API, I recommend reading the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) or [Javascript Intersection Observer API Explained in Detail](https://usefulangle.com/post/118/javascript-intersection-observer) post by [Useful Angle](https://usefulangle.com/). This [Medium Story by Vamsi Vempati](https://medium.com/angular-in-depth/a-modern-solution-to-lazy-loading-using-intersection-observer-9280c149bbc) discusses how to use Intersection Observer API to lazy load images. Additionally, the two following npm packages implement Intersection Observer API: [ng-in-viewport](https://k3nsei.gitbook.io/ng-in-viewport/) and [ng-defer-load](https://www.npmjs.com/package/@trademe/ng-defer-load).*
 
@@ -104,7 +104,7 @@ The callback function `checkForIntersection` would have logic to check if the el
 
 ## Using the Directive
 
-The directive should be added automatically to the list of imports in the module corresponding to your component since we used the Angular CLI, so we can use the directive with any element that we wish to observe. We simply use `(appInViewport)` to use the directive and listen to events emitted from it. Optionally, we can specifiy the `inViewportOptions`. It accepts a JSON string in the following format: `'{ &quot;threshold&quot;: [threshold value] }'`
+The directive should be added automatically to the list of imports in the module corresponding to your component since we used the Angular CLI, so we can use the directive with any element that we wish to observe. We simply use `(appInViewport)` to use the directive and listen to events emitted from it. Optionally, we can specify the `inViewportOptions`. It accepts a JSON string in the following format: `'{ &quot;threshold&quot;: [threshold value] }'`
 
 * Note: in HTML, double quotes are escaped by `&quot;`
 
