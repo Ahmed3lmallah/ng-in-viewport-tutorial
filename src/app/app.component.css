@@ -1,0 +1,42 @@
+h1 {
+  text-align: center;
+}
+
+ul.list {
+  margin: 0;
+  padding: 24px;
+  display: block;
+  list-style: none;
+}
+
+ul.list > li.list-item {
+  width: 100%;
+  height: 25vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color .25s ease-in-out, color .25s ease-in-out;
+}
+
+ul.list:not(:first-child) {
+  margin-top: 12px;
+}
+
+.inactive {
+  background-color: #CCCCCC;
+  color: rgba(#000000, .85);
+}
+
+.active {
+  background-color: #00C853;
+  color: rgba(#FFFFFF, .85);
+}
+
+li.active > span {
+  font-weight: 700;
+  font-size: 40px;
+  color: #FFFFFF;
+}

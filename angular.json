@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-in-viewport"
+    }
+  },
+  "defaultProject": "ng-in-viewport",
+  "cli": {
+    "analytics": false
+  }
 }
