@@ -14,6 +14,6 @@ export class AppComponent {
   }
 
   onIntersection({target}: { target: ElementRef }) {
-    target.nativeElement.classList.add("active");
+    // target.nativeElement.classList.add("active");
   }
 }
